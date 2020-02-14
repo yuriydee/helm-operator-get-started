@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{ .Values.appName }}-ingress"
+  labels:
+{{ include "python-3.6.labels" . | indent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  rules:
+    - host: "{{ .Values.appName }}.{{ .Values.environment }}.apps.scholastic.tech"
+      http:
+        paths:
+          - backend:
+              serviceName: "{{ .Values.appName }}-service"
+              servicePort: {{ .Values.service.port }}
+            path: {{ .Values.ingress.path }}

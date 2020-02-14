@@ -11,12 +11,21 @@ spec:
   releaseName: podinfo-dev
   chart:
     git: git@github.com:fluxcd/helm-operator-get-started
-    path: charts/podinfo
+    path: charts/python-3.6
     ref: master
   values:
     image:
-      repository: stefanprodan/podinfo
-      tag: stg-9ij63o4c
+      name: test-python
+      version: 0437ec0-202002042055
+      repository: scholastic-image-hub.jfrog.io
+      pullPolicy: IfNotPresent
+      secret: jfrog-image-hub
     replicaCount: 1
-    hpa:
-      enabled: false
+    appName: gitops-test
+    project: test
+    namespace: test-dev
+    environment: dev
+    service:
+      type: ClusterIP
+      port: 8080
+      targetPort: 8080
