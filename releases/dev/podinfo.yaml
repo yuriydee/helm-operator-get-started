@@ -16,8 +16,11 @@ spec:
   values:
     image:
       name: test-python
+      repository: test/test-python
       version: 0437ec0-202002042055
+      tag: 0437ec0-202002042055
       repository: scholastic-image-hub.jfrog.io
+      registry: scholastic-image-hub.jfrog.io
       pullPolicy: IfNotPresent
       secret: jfrog-image-hub
     replicaCount: 1
