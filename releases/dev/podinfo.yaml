@@ -23,6 +23,7 @@ spec:
       registry: scholastic-image-hub.jfrog.io
       pullPolicy: IfNotPresent
       secret: jfrog-image-hub
+    imagePullSecrets: jfrog-image-hub
     replicaCount: 1
     appName: gitops-test
     project: test
