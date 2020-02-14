@@ -23,7 +23,7 @@ spec:
     replicaCount: 1
     appName: gitops-test
     project: test
-    namespace: test-dev
+    namespace: dev
     environment: dev
     service:
       type: ClusterIP
